@@ -10,13 +10,13 @@ public class GetEnvironment {
 
     public String getUrl(String environment,String service){
 
-        String urlkey=MessageFormat.format("{0}_{0}", service, environment);
+        String urlkey=MessageFormat.format("{0}_{1}", service, environment);
 
 
         String baseurl="";
         ResourceBundle bundle = ResourceBundle.getBundle("application");
 
-        if (environment.equals("DEV")||environment.equals("Test")||environment.equals("Pre")||environment.equals("Production")){
+        if (environment.equals("Dev")||environment.equals("Test")||environment.equals("Pre")||environment.equals("Production")){
             baseurl =bundle.getString(urlkey);
             log.info("域名关键字："+urlkey);
             log.info("环境域名："+ baseurl);
