@@ -8,7 +8,7 @@ import java.util.ResourceBundle;
 @Slf4j
 public class GetEnvironment {
 
-    public String getUrl(String service,String environment){
+    public String getUrl(String environment,String service){
 
         String urlkey=MessageFormat.format("{0}_{0}", service, environment);
 
