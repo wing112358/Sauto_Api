@@ -23,6 +23,7 @@ public class GetEnvironment {
         }
         else{
             log.info("环境参数传参错误");
+            log.info("这里是传入的环境值："+environment+"这里是传入的系统值："+service);
         }
 //        String baseurl="";
 //        ResourceBundle bundle = ResourceBundle.getBundle("application");
