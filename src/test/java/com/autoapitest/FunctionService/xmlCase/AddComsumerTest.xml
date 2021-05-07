@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<AddComsumerTest>
+    <addComsumer>
+        <data ID="正常测试">
+            <result>操作成功</result>
+            <AddConsumerReq ID="param">
+                <account>17800000001</account>
+                <!--<id></id>-->
+                <name>测试新增公司777</name>
+                <setMealId>41</setMealId>
+            </AddConsumerReq>
+        </data>
+    </addComsumer>
+</AddComsumerTest>

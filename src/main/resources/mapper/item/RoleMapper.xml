@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.autoapitest.FunctionService.mapper.item.RoleMapper">
+    <resultMap id="BaseResultMap" type="com.autoapitest.FunctionService.entity.RoleEntity">
+        <id column="id" property="role_info_id" />
+        <id column="customer_id" property="customer_id" />
+        <id column="name" property="name" />
+        <id column="remark" property="remark" />
+        <id column="is_delete" property="is_delete" />
+        <id column="update_time" property="role_info_update_time" />
+        <id column="create_time" property="role_info_create_time" />
+        <id column="id" property="role_function_id" />
+        <id column="function_id" property="function_id" />
+        <id column="role_id" property="role_id" />
+        <id column="update_time" property="role_function_update_time" />
+        <id column="create_time" property="role_function_create_time" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        role_info.id,customer_id,name,remark,is_delete,role_function.id,function_id,role_id
+    </sql>
+
+    <delete id="deleteRoleByName">
+        delete
+        from role_info
+        where name=#{name}
+    </delete>
+
+    <delete id="deleteRoleFunctionByName">
+      delete role_function
+      from role_function,role_info
+      where role_id=role_info.id
+      and role_info.name= #{name}
+    </delete>
+
+    <select id="getRoleByName" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from role_function,role_info
+        where role_id=role_info.id
+        and role_info.name= #{name}
+    </select>
+
+    <select id="getRoleId" resultType="Integer">
+        select role_info.id
+        from role_info
+        where role_info.name= #{name}
+    </select>
+</mapper>

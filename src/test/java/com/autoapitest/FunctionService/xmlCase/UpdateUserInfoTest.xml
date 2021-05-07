@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<UpdateUserInfoTest>
+    <updateUserinfo>
+        <data ID="正常测试">
+            <result>操作成功</result>
+            <UpdateUserReq ID="param">
+                <!--<avatar></avatar>-->
+                <!--<cooperationTeam></cooperationTeam>-->
+                <!--<customerId></customerId>-->
+                <!--<id></id>-->
+                <!--<name></name>-->
+                <!--<phone></phone>-->
+                <!--<remark></remark>-->
+                <!--<roleInfoIdList></roleInfoIdList>-->
+                <!--<type></type>-->
+                <status>1</status>
+            </UpdateUserReq>
+        </data>
+    </updateUserinfo>
+</UpdateUserInfoTest>

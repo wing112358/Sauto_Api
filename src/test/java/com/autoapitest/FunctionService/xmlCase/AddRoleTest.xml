@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<AddRoleTest>
+    <addRole>
+        <data ID="正常测试">
+            <result>操作成功</result>
+            <AddRoleReq ID="param">
+                <!--<customerId></customerId>-->
+                <functionIds>281,282,283</functionIds>
+                <name>测试新增角色777</name>
+                <remark>测试新增角色正不正常啊啊啊啊啊啊啊啊啊啊</remark>
+            </AddRoleReq>
+        </data>
+    </addRole>
+</AddRoleTest>

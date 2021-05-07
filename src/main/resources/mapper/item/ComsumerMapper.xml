@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.autoapitest.FunctionService.mapper.item.ComsumerMapper">
+    <resultMap id="BaseResultMap" type="com.autoapitest.FunctionService.entity.ComsumerEntity">
+        <id column="id" property="customer_info_id" />
+        <id column="name" property="name" />
+        <id column="account" property="account" />
+        <id column="is_delete" property="is_delete" />
+        <id column="update_time" property="customer_info_update_time" />
+        <id column="create_time" property="customer_info_create_time" />
+        <id column="id" property="customer_set_meal_id" />
+        <id column="customer_id" property="customer_id" />
+        <id column="set_meal_id" property="set_meal_id" />
+        <id column="status" property="status" />
+        <id column="timeout" property="timeout" />
+        <id column="update_time" property="customer_set_meal_update_time" />
+        <id column="create_time" property="customer_set_meal_create_time" />
+        <id column="id" property="customer_function_id" />
+        <id column="customer_id" property="customer_function_customer_id" />
+        <id column="function_id" property="function_id" />
+        <id column="update_time" property="customer_function_update_time" />
+        <id column="create_time" property="customer_function_create_time" />
+    </resultMap>
+
+    <sql id="comsumer+meal">
+        customer_info.id,name,account,is_delete,customer_set_meal.id,customer_id,set_meal_id,status,timeout
+    </sql>
+
+    <sql id="comsumer+funciton">
+        customer_info.id,name,account,is_delete,customer_function.id,customer_id,function_id
+    </sql>
+
+    <sql id="comsumer+meal+function">
+        customer_info.id,name,account,is_delete,customer_set_meal.id,customer_set_meal.customer_id,set_meal_id,status,timeout,customer_function.id,customer_function.customer_id,function_id
+    </sql>
+
+    <delete id="deleteComsumerByName">
+        delete
+        from customer_info
+        where name = #{name}
+    </delete>
+
+    <delete id="deletemealByName">
+        delete customer_set_meal
+        from customer_info,customer_set_meal
+        where customer_info.name = #{name}
+        and customer_info.id = customer_set_meal.id
+    </delete>
+
+    <delete id="deletefunctionByName">
+        delete customer_function
+        from customer_info,customer_function
+        where customer_info.name = #{name}
+        and customer_info.id = customer_function.customer_id
+    </delete>
+
+    <select id="getComsumerByName" resultMap="BaseResultMap">
+        select
+        <include refid="comsumer+meal+function"/>
+        FROM
+        customer_info
+        LEFT JOIN customer_set_meal ON customer_set_meal.customer_id = customer_info.id
+        LEFT JOIN customer_function ON customer_function.customer_id = customer_info.id
+        WHERE
+        customer_info.name=#{name}
+    </select>
+
+    <select id="getIdByname" resultType="Integer">
+        select customer_info.id
+        from customer_info
+        where customer_info.name=#{name} and customer_info.is_delete=0
+    </select>
+
+</mapper>

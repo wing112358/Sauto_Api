@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.autoapitest.FunctionService.mapper.own.AddFunctionTestMapper">
+    <resultMap id="BaseResultMap" type="com.autoapitest.FunctionService.entity.AddFunctionTestEntity">
+        <id column="id" property="id" />
+        <id column="ownid" property="ownid" />
+        <id column="pid" property="pid" />
+        <id column="name" property="name" />
+        <id column="url" property="url" />
+        <id column="type" property="type" />
+        <id column="expected" property="expected" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+       id,ownid,pid,name,url.type,expected
+    </sql>
+
+    <insert id="InsertDetails"  >
+        insert  into add_function_test
+        (ownid,pid,name,url,type,expected)
+        values (#{ownid},#{pid},#{name},#{url},#{type},#{expected})
+    </insert>
+
+</mapper>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<AddUserTest>
+    <addUser>
+        <data ID="正常测试">
+            <result>操作成功</result>
+            <AddUserReq ID="param">
+                <avatar>https://shumei-official-websit.oss-cn-hangzhou.aliyuncs.com/shumei%20logo.jpg</avatar>
+                <!--<customerId></customerId>-->
+                <name>新增用户测试777</name>
+                <phone>17800000002</phone>
+                <!--<roleInfoIdList>184,185,186</roleInfoIdList>-->
+                <status>1</status>
+                <type>1</type>
+            </AddUserReq>
+        </data>
+    </addUser>
+</AddUserTest>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="权限测试" verbose="10" time-out="600000" allow-return-values="true">
+    <parameter name="ENV" value="${ENV}"></parameter>
+    <test name="增加客户后操作测试">
+        <classes>
+            <class name="com.autoapitest.FunctionService.MealAndComsumer.consumer.AddComsumerTest">
+                <methods>
+                    <include name="addComsumer" description="新增客户测试"></include>
+                </methods>
+            </class>
+            <class name="com.autoapitest.FunctionService.User.AddRoleTest">
+                <methods>
+                    <include name="addRole" description="新增角色测试"></include>
+                </methods>
+            </class>
+            <class name="com.autoapitest.FunctionService.User.AddUserTest">
+                <methods>
+                    <include name="addUser" description="新增用户测试"></include>
+                </methods>
+            </class>
+            <class name="com.autoapitest.FunctionService.User.UpdateUserInfoTest">
+                <methods>
+                    <include name="updateUserinfo" description="更新用户测试"></include>
+                </methods>
+            </class>
+            <class name="com.autoapitest.FunctionService.Function.getFunction.GetFunctionTreeTest">
+                <methods>
+                    <include name="getFunctionInfo" description="用户查询权限测试"></include>
+                </methods>
+            </class>
+            <!--<class name="com.autoapitest.FunctionService.User.GetUserInfoTest">-->
+            <!--<methods>-->
+            <!--<include name="getUserInfo" description="用户查询权限测试"></include>-->
+            <!--</methods>-->
+            <!--</class>-->
+        </classes>
+    </test>
+    <listeners>
+        <listener class-name="com.autoapitest.FunctionService.system.utils.TestngListener"/>
+    </listeners>
+    <!--<parameter name="ENV" value="${ENV}"/>-->
+</suite>

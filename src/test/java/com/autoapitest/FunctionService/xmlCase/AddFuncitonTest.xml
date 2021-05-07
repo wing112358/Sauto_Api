@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<AddFuncitonTest>
+    <addFunctionNormal>
+        <data ID="正常测试" >
+            <result>操作成功</result>
+            <AddFunctionReq ID="param">
+                <currentId>129</currentId>
+                <pid>null</pid>
+                <name>测试新增权限777</name>
+                <type>1</type>
+                <url>/dhdhdshyhd/hdshdsyyhwh</url>
+            </AddFunctionReq>
+        </data>
+    </addFunctionNormal>
+
+    <addPage>
+        <data ID="正常测试" >
+            <result>操作成功</result>
+            <AddFunctionReq ID="param">
+                <name>测试新增页面777</name>
+                <type>2</type>
+                <url>/dhydydshnshsh/dhdy</url>
+            </AddFunctionReq>
+        </data>
+    </addPage>
+
+    <addButton>
+        <data ID="正常测试" >
+            <result>操作成功</result>
+            <AddFunctionReq ID="param">
+                <name>测试新增按钮777</name>
+                <type>3</type>
+                <url>/yydhhgraudayudfghfgdgf</url>
+            </AddFunctionReq>
+        </data>
+    </addButton>
+</AddFuncitonTest>

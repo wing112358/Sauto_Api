@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.autoapitest.FunctionService.mapper.item.MealMapper">
+    <resultMap id="BaseResultMap" type="com.autoapitest.FunctionService.entity.MealEntity">
+        <id column="id" property="set_mealid" />
+        <id column="name" property="name" />
+        <id column="duration" property="duration" />
+        <id column="is_delete" property="is_delete" />
+        <id column="create_time" property="mael_create_time" />
+        <id column="update_time" property="mael_update_time" />
+        <id column="id" property="sfrelationid" />
+        <id column="set_meal_id" property="set_meal_id" />
+        <id column="function_id" property="function_id" />
+        <id column="create_time" property="create_time" />
+        <id column="update_time" property="update_time" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        set_meal.id,name,duration,is_delete,set_meal.create_time,set_meal.update_time,set_meal_function.id,set_meal_id,function_id,set_meal_function.create_time,set_meal_function.update_time
+    </sql>
+    
+    <delete id="deleteFunctionByName">
+        DELETE  set_meal_function
+        FROM set_meal
+	    LEFT JOIN set_meal_function ON set_meal_function.set_meal_id = set_meal.id
+        WHERE
+	    set_meal.name =#{name}
+    </delete>
+
+    <delete id="deleteMealByName">
+        delete
+        from set_meal
+        where set_meal.name = #{name } and set_meal.is_delete=0
+    </delete>
+
+    <select id="getMealByName" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from set_meal,set_meal_function
+        where set_meal_function.set_meal_id= set_meal.id
+        and set_meal.name=#{name}
+    </select>
+
+    <select id="getIdByname" resultType="Long">
+        select set_meal.id
+        from set_meal
+        where name=#{name}and set_meal.is_delete=0
+    </select>
+
+</mapper>

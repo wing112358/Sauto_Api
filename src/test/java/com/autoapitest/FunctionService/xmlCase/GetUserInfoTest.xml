@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GetUserInfoTest>
+    <getUserInfo>
+        <data ID="正常测试">
+            <result>操作成功</result>
+            <GetUserInfoReq ID="param">
+            </GetUserInfoReq>
+        </data>
+    </getUserInfo>
+</GetUserInfoTest>

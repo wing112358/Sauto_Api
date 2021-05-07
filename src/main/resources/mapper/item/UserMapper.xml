@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.autoapitest.FunctionService.mapper.item.UserMapper">
+    <resultMap id="BaseResultMap" type="com.autoapitest.FunctionService.entity.UserEntity">
+        <id column="id" property="user_info_id" />
+        <id column="customer_id" property="customer_id" />
+        <id column="name" property="name" />
+        <id column="phone" property="phone" />
+        <id column="avatar" property="avatar" />
+        <id column="status" property="status" />
+        <id column="type" property="type" />
+        <id column="cooperation_team" property="cooperation_team" />
+        <id column="remark" property="remark" />
+        <id column="is_delete" property="is_delete" />
+        <id column="update_time" property="user_info_update_time" />
+        <id column="create_time" property="user_info_create_time" />
+        <id column="id" property="user_role_id" />
+        <id column="role_id" property="role_id" />
+        <id column="user_id" property="user_id" />
+        <id column="update_time" property="user_role_update_time" />
+        <id column="create_time" property="user_role_create_time" />
+        <id column="id" property="login_info_id" />
+        <id column="user_id" property="login_info_user_id" />
+        <id column="account" property="account" />
+        <id column="password" property="password" />
+        <id column="already_first_login" property="already_first_login" />
+        <id column="is_delete" property="login_info_is_delete" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        user_info.id,customer_id,name,phone,avatar,status,type,cooperation_team,remark,user_info.is_delete,user_role.id,user_role.user_id,role_id,login_info.id,login_info.user_id,account,password,already_first_login,login_info.is_delete
+    </sql>
+
+    <select id="selectByPhone" resultMap="BaseResultMap">
+      SELECT
+	  <include refid="Base_Column_List"/>
+        FROM
+        user_info
+        LEFT JOIN login_info ON login_info.user_id = user_info.id
+        LEFT JOIN user_role ON user_role.user_id = user_info.id
+        WHERE
+        user_info.phone = #{phone}
+    </select>
+
+    <select id="selectIdByPhone" resultType="Integer">
+        select
+        user_info.id
+        from user_info
+        where phone=#{phone}
+    </select>
+
+    <delete id="deleteUserByPhone">
+        delete
+        from user_info
+       where phone=#{phone}
+    </delete>
+
+    <delete id="deleteLoginByAccount">
+        delete
+        from login_info
+        where account=#{account}
+    </delete>
+
+    <delete id="deleteRoleByPhone">
+        DELETE
+	    user_role
+        FROM
+	    user_role,
+	    user_info
+        WHERE
+	    user_role.user_id = user_info.id
+	    AND user_info.phone = #{phone}
+    </delete>
+
+    <update id="updateUserStatusByPhone">
+        update user_info
+        set user_info.status= 1
+        where user_info.phone=#{phone}
+    </update>
+
+    <select id="getUserStatusByid" resultType="Integer">
+        select user_info.status
+        from user_info
+        where user_info.id = #{id}
+    </select>
+    <select id="getUserPhoneByid" resultType="String">
+        select user_info.phone
+        from user_info
+        where user_info.id = #{id}
+    </select>
+
+
+
+</mapper>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<AddMealTest>
+    <addMeal>
+        <data ID="正常测试">
+            <result>操作成功</result>
+            <AddMealReq ID="param">
+                <duration>永久</duration>
+                <functionIdList>184,185,186</functionIdList>
+                <name>测试新增套餐777</name>
+            </AddMealReq>
+        </data>
+    </addMeal>
+</AddMealTest>
